@@ -11,17 +11,17 @@ const App = () => {
     setWelcome('')
     let {name, email,gender,phoneNumber,password} = userData
     if(name ==='' || email === '' || phoneNumber ==='' || password === ''){
-      setErrorMess('All fields are mandatory.')
+      setErrorMess('All fields are mandatory')
     }else if(!/^[a-zA-Z0-9 ]+$/.test(name)){
-      setErrorMess('Name is not alphanumeric.')
+      setErrorMess('Name is not alphanumeric')
     }else if(!email.includes('@')){
-      setErrorMess('Email must contain @.')
+      setErrorMess('Email must contain @')
     }else if(!new Set(['male','female','other']).has(gender)){
-      setErrorMess('Please identify as male, female or others.')
+      setErrorMess('Please identify as male, female or others')
     }else if(!/^\d+$/.test(phoneNumber)){
-      setErrorMess('Phone Number must contain only numbers.')
+      setErrorMess('Phone Number must contain only numbers')
     }else if(password.length < 6){
-      setErrorMess('Password must contain at least 6 letters.')
+      setErrorMess('Password must contain at least 6 letters')
     }else{
       let idx = email.indexOf('@')
       setWelcome(email.slice(0,idx))
@@ -55,7 +55,7 @@ const App = () => {
         <button type="submit" data-testid='submit'>Submit</button>
       </form>
       <span style={{color:'red'}}>{errorMess}</span>
-      {welcome && <p>Hello {welcome}</p>}
+      {welcome && <h2>Hello {welcome}</h2>}
     </div>
   )
 }
