@@ -48,7 +48,7 @@ const App = () => {
         <select data-testid='gender' value={userData.gender} onChange={handleChange}>
           <option value='male'>Male</option>
           <option value='female'>Female</option>
-          <option value='others'>Others</option>
+          <option value='other'>Other</option>
         </select>
         <input data-testid='phoneNumber' value={userData.phoneNumber} onChange={handleChange} />
         <input data-testid='password' type="password" value={userData.password} onChange={handleChange} />
