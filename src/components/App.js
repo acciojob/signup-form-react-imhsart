@@ -15,16 +15,16 @@ const App = () => {
     }else if(!/^[a-zA-Z0-9 ]+$/.test(name)){
       setErrorMess('Name is not alphanumeric')
     }else if(!email.includes('@')){
-      setErrorMess('Email must contain @')
-    }else if(!new Set(['male','female','other']).has(gender)){
+      setErrorMess('email must contain @')
+    }else if(!new Set(['male','female','others']).has(gender)){
       setErrorMess('Please identify as male, female or others')
     }else if(!/^\d+$/.test(phoneNumber)){
       setErrorMess('Phone Number must contain only numbers')
     }else if(password.length < 6){
-      setErrorMess('Password must contain at least 6 letters')
+      setErrorMess('Password must contain atleast 6 letters')
     }else{
       let idx = email.indexOf('@')
-      setWelcome(email.slice(0,idx))
+      setWelcome(email.slice(0,idx).toUpperCase())
       setErrorMess('')
       setUserData({name:'',email:'',gender:'male',phoneNumber:'',password:''})
     }
@@ -48,7 +48,7 @@ const App = () => {
         <select data-testid='gender' value={userData.gender} onChange={handleChange}>
           <option value='male'>Male</option>
           <option value='female'>Female</option>
-          <option value='other'>Other</option>
+          <option value='others'>Others</option>
         </select>
         <input data-testid='phoneNumber' value={userData.phoneNumber} onChange={handleChange} />
         <input data-testid='password' type="password" value={userData.password} onChange={handleChange} />
