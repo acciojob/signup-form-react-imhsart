@@ -8,6 +8,7 @@ const App = () => {
 
   function handleSubmit(e){
     e.preventDefault()
+    setWelcome('')
     let {name, email,gender,phoneNumber,password} = userData
     if(name ==='' || email === '' || phoneNumber ==='' || password === ''){
       setErrorMess('All fields are mandatory.')
@@ -53,7 +54,7 @@ const App = () => {
         <input data-testid='password' type="password" value={userData.password} onChange={handleChange} />
         <button type="submit" data-testid='submit'>Submit</button>
       </form>
-      <p className="error-message">{errorMess}</p>
+      <span style={{color:'red'}}>{errorMess}</span>
       {welcome && <p>Hello {welcome}</p>}
     </div>
   )
